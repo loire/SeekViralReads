@@ -45,6 +45,11 @@ R2=$(basename $2)
 arrIN=(${R1//_/ })
 basen=${arrIN[0]}
 
+# set reference for filtering (16S and host genome) 
+
+ref=$3
+
+
 # options of cutadapt
 # n: trim max number of adapters
 # m: keep reads at least that long
@@ -63,9 +68,13 @@ cutadapt -n 5 -a $A3 -g $A5 -A $A3 -G $A5 -O 15 -m 40 -q 30,30 -o cleaned_$R1  -
 arrIN=(${R1//_/ })
 basen=${arrIN[0]}
 
+# index ref
+
+bwa index $ref
+
 # map on host genomes / bacterial 16S
 
-bwa mem -t $nthread  /homedir/pgil/save/MGS002/host_sequences/Bacterial16S_and_Aedes_vexans_genome.fasta cleaned_$R1 cleaned_$R2 2> log_bwa_$basen | samtools view -b - > Contamination_"$basen".bam
+bwa mem -t $nthread $ref cleaned_$R1 cleaned_$R2 2> log_bwa_$basen | samtools view -b - > Contamination_"$basen".bam
 
 # get some stats on the alignement of reads on the host + bacterial 16S sequences :
 
@@ -89,10 +98,11 @@ for i in out*fastq ; do seqtk seq -A $i >> "$basen"_reads_potential_viral.fasta 
 # blast on viral database (in ~/save/blastdb)
 # parameters used: n threads, only best alignment is reported, output is a simple tabular file with accession number
 
-blastn -db /homedir/pgil/save/blast_db/Viral_NT_sequences.fasta -query "$basen"_reads_potential_viral.fasta -num_threads $nthread -evalue 0.05 -num_alignments 1 -outfmt 6 > "$basen"_blast_vir_NT_results.tsv
+blastn -db /homedir/loire/work/share/ViralBlastDB/homedir/loire/work/share/ViralBlastDB/Viral_NT_sequences.fasta -query "$basen"_reads_potential_viral.fasta -num_threads $nthread -evalue 0.05 -num_alignments 1 -outfmt 6 > "$basen"_blast_vir_NT_results.tsv
 
+blastn -db /homedir/loire/work/share/ViralBlastDB/homedir/loire/work/share/ViralBlastDB/refseqVirNuc.fasta  -query "$basen"_reads_potential_viral.fasta -num_threads $nthread -evalue 0.05 -num_alignments 1 -outfmt 6 > "$basen"_blast_vir_RefSeq_results.tsv
 
-blastx -db /homedir/pgil/save/blast_db/Viral_AA_sequences.fasta -query "$basen"_reads_potential_viral.fasta -num_threads $nthread -evalue 0.05 -num_alignments 1 -outfmt 6 > "$basen"_blast_vir_AA_results.tsv
+blastx -db /homedir/loire/work/share/ViralBlastDB/homedir/loire/work/share/ViralBlastDB/AA_VIR -query "$basen"_reads_potential_viral.fasta -num_threads $nthread -evalue 0.05 -num_alignments 1 -outfmt 6 > "$basen"_blast_vir_AA_results.tsv
 
 # clean intermediate files
 
