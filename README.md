@@ -1,6 +1,22 @@
 SeekViralReads
 ======
 
+install
+=======
+This script is to be executed on cc2-login (southgreen cluster). It will take as argument two fastq files and fasta files with the potential contaminent sequences.
+
+First time, use 
+```bash
+git clone https://github.com/loire/SeekViralReads 
+```
+in a directory of your account.
+To update, just type 
+```bash
+git pull 
+```
+in the same directory 
+
+
 usage 
 ======
 
@@ -22,4 +38,4 @@ Steps are:
    * on the viral Refseq database (complete genome), with blastn      
    * on a complete viral protein database (blastx), with blastx     
 
-This script is to be executed on cc2-login (southgreen cluster). It will take as argument two fastq files and fasta files with the potential contaminent sequences
+
