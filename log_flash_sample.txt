@@ -1,0 +1,37 @@
+[FLASH] Starting FLASH v1.2.11
+[FLASH] Fast Length Adjustment of SHort reads
+[FLASH]  
+[FLASH] Input files:
+[FLASH]     filtered_sample_R1.fastq
+[FLASH]     filtered_sample_R2.fastq
+[FLASH]  
+[FLASH] Output files:
+[FLASH]     ./out.extendedFrags.fastq
+[FLASH]     ./out.notCombined_1.fastq
+[FLASH]     ./out.notCombined_2.fastq
+[FLASH]     ./out.hist
+[FLASH]     ./out.histogram
+[FLASH]  
+[FLASH] Parameters:
+[FLASH]     Min overlap:           10
+[FLASH]     Max overlap:           100
+[FLASH]     Max mismatch density:  0.250000
+[FLASH]     Allow "outie" pairs:   false
+[FLASH]     Cap mismatch quals:    false
+[FLASH]     Combiner threads:      15
+[FLASH]     Input format:          FASTQ, phred_offset=33
+[FLASH]     Output format:         FASTQ, phred_offset=33
+[FLASH]  
+[FLASH] Starting reader and writer threads
+[FLASH] Starting 15 combiner threads
+[FLASH]  
+[FLASH] Read combination statistics:
+[FLASH]     Total pairs:      0
+[FLASH]     Combined pairs:   0
+[FLASH]     Uncombined pairs: 0
+[FLASH]     Percent combined: 0.00%
+[FLASH]  
+[FLASH] Writing histogram files.
+[FLASH]  
+[FLASH] FLASH v1.2.11 complete!
+[FLASH] 0.011 seconds elapsed
