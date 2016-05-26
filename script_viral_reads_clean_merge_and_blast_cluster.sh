@@ -109,10 +109,10 @@ java -jar /usr/local/bioinfo/picard-tools/1.130/picard.jar SamToFastq I=sample_u
 
 # merge overlapping reads with flash 
 
-./flash -M 100 -t $nthread filtered_$R1 filtered_$R2 &> log_flash_"$basen".txt
+flash -M 100 -t $nthread filtered_$R1 filtered_$R2 &> log_flash_"$basen".txt
 
 # fastq2fasta for the three reads files (merge and singleton)
-for i in out*fastq ; do ./seqtk seq -A $i >> "$basen"_reads_potential_viral.fasta ; done 
+for i in out*fastq ; do seqtk seq -A $i >> "$basen"_reads_potential_viral.fasta ; done 
 
 # blast on viral database (in ~/save/blastdb)
 # parameters used: n threads, only best alignment is reported, output is a simple tabular file with accession number
