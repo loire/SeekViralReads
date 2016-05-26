@@ -5,6 +5,9 @@ install
 =======
 This script is to be executed on cc2-login (southgreen cluster). It will take as argument two fastq files and fasta files with the potential contaminent sequences.
 
+seqtk and flash binaries are provided, make sure to copy or link them in ~/bin or any other directory in the $PATH
+
+
 First time, use 
 ```bash
 git clone https://github.com/loire/SeekViralReads 
