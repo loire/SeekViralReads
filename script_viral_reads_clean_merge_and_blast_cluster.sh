@@ -34,8 +34,9 @@ module load bioinfo/ncbi-blast/2.2.30
 
 
 # adapter sequence in 3' and 5'
-A3=CAGCGGACGCCTATG
-A5=CATAGGCGTCCGCTG
+A3=CAGCGGACGCCTATGTGATGG
+A5=CATCACATAGGCGTCCGCTG
+
 
 # reads file names
 R1=$(basename $1)
@@ -49,13 +50,13 @@ basen=${arrIN[0]}
 
 ref=$3
 
-
- options of cutadapt
- n: trim max number of adapters
- m: keep reads at least that long
- q: quality trimming (phread score)
- O: overlap (not threads)
-
+#
+# options of cutadapt
+# n: trim max number of adapters
+# m: keep reads at least that long
+# q: quality trimming (phread score)
+# O: overlap (not threads)
+#
 cutadapt -n 5 -a $A3 -g $A5 -A $A3 -G $A5 -O 15 -m 40 -q 30,30 -o cleaned_$R1  -p cleaned_$R2  $1 $2 &> log_cutadapt_$basen
 
 # suppress the 25 last base of R2 (maybe this part should be commented: in this case, comment the towo 
