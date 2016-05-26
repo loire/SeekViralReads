@@ -32,6 +32,24 @@ module load bioinfo/ncbi-blast/2.2.30
 # Flash (https://sourceforge.net/projects/flashpage/)
 # seqtk (https://github.com/lh3/seqtk)
 
+# Test if files exist:
+if [ ! -f $1 ]; then
+	    echo "Reads R1  not found!"
+	    exit 1 
+fi
+
+# Test if files exist:
+if [ ! -f $2 ]; then
+	    echo "Reads R2  not found!"
+	    exit 1 
+fi
+
+# Test if files exist:
+if [ ! -f $3 ]; then
+	    echo "Reference fastafile  not found!"
+	    exit 1 
+fi
+
 
 # adapter sequence in 3' and 5'
 A3=CAGCGGACGCCTATGTGATGG
