@@ -15,15 +15,15 @@ outdir:
 R1=$(basename $1)
 R2=$(basename $2)
 
-
-FASTQ_FILES=$(wildcard $(path_to_fastq)/*.fastq)
+#PATH_TO_READS_FILE="coucou"
+FASTQ_FILES=$(wildcard $(PATH_TO_READS_FILE)/*.fastq)
 
 # Phony target, no target created but use @echo (and not echo to avoir printing the command)  and the TXT_FILES variables to print all matching patterns
 ## variables: print variables 
 .PHONY : variables
 variables :
 		@echo TXT_FILES: $(FASTQ_FILES)
-
+		@echo PATH: $(PATH_TO_READS_FILE)
 
 .PHONY : load
 load: 	
