@@ -1,0 +1,19 @@
+[bwa_index] Pack FASTA... 0.00 sec
+[bwa_index] Construct BWT for the packed sequence...
+[bwa_index] 0.00 seconds elapse.
+[bwa_index] Update BWT... 0.00 sec
+[bwa_index] Pack forward-only FASTA... 0.00 sec
+[bwa_index] Construct SA from BWT and Occ... 0.00 sec
+[main] Version: 0.7.12-r1039
+[main] CMD: bwa index Data/Bacterial16S_and_Aedes_vexans_genome.fasta
+[main] Real time: 0.049 sec; CPU: 0.004 sec
+Reading file sample_reads_potential_viral.fasta 100%
+211772 nt in 875 seqs, min 41, max 487, avg 242
+Sorting by length 100%
+Dereplicating 100%
+Sorting 100%
+724 unique sequences, avg cluster 1.2, median 1, max 10
+Writing output file 100%
+vsearch v1.11.1_linux_x86_64, 188.9GB RAM, 48 cores
+https://github.com/torognes/vsearch
+
