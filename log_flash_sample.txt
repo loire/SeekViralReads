@@ -24,14 +24,20 @@
 [FLASH]  
 [FLASH] Starting reader and writer threads
 [FLASH] Starting 15 combiner threads
+[FLASH] Processed 525 read pairs
 [FLASH]  
 [FLASH] Read combination statistics:
-[FLASH]     Total pairs:      0
-[FLASH]     Combined pairs:   0
-[FLASH]     Uncombined pairs: 0
-[FLASH]     Percent combined: 0.00%
+[FLASH]     Total pairs:      525
+[FLASH]     Combined pairs:   175
+[FLASH]     Uncombined pairs: 350
+[FLASH]     Percent combined: 33.33%
 [FLASH]  
 [FLASH] Writing histogram files.
+[FLASH] WARNING: An unexpectedly high proportion of combined pairs (26.86%)
+overlapped by more than 100 bp, the --max-overlap (-M) parameter.  Consider
+increasing this parameter.  (As-is, FLASH is penalizing overlaps longer than
+100 bp when considering them for possible combining!)
 [FLASH]  
 [FLASH] FLASH v1.2.11 complete!
-[FLASH] 0.011 seconds elapsed
+[FLASH] 0.024 seconds elapsed
+[FLASH] Finished with 1 warning (see above)

@@ -1,0 +1,93 @@
+This is cutadapt 1.8.1 with Python 2.7.9
+Command line parameters: -a CAGCGGACGCCTATGTGATGG -g CATCACATAGGCGTCCGCTG -A CAGCGGACGCCTATGTGATGG -G CATCACATAGGCGTCCGCTG -m 40 -q 30,30 -o cleaned_sample_R1.fastq -p cleaned_sample_R2.fastq no_adaptor_sample_R1.fastq no_adaptor_sample_R2.fastq
+Trimming 4 adapters with at most 10.0% errors in paired-end mode ...
+Finished in 0.08 s (80 us/read; 0.75 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:              1,000
+  Read 1 with adapter:                      38 (3.8%)
+  Read 2 with adapter:                      43 (4.3%)
+Pairs that were too short:                  60 (6.0%)
+Pairs written (passing filters):           940 (94.0%)
+
+Total basepairs processed:       490,166 bp
+  Read 1:       247,655 bp
+  Read 2:       242,511 bp
+Quality-trimmed:                  69,564 bp (14.2%)
+  Read 1:        12,517 bp
+  Read 2:        57,047 bp
+Total written (filtered):        407,287 bp (83.1%)
+  Read 1:       224,446 bp
+  Read 2:       182,841 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: CAGCGGACGCCTATGTGATGG; Type: regular 3'; Length: 21; Trimmed: 23 times.
+
+No. of allowed errors:
+0-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Bases preceding removed adapters:
+  A: 26.1%
+  C: 17.4%
+  G: 34.8%
+  T: 21.7%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	10	15.6	0	10
+4	2	3.9	0	2
+5	2	1.0	0	2
+6	3	0.2	0	3
+7	1	0.1	0	1
+8	2	0.0	0	2
+9	1	0.0	0	1
+10	1	0.0	1	1
+11	1	0.0	1	1
+
+=== First read: Adapter 2 ===
+
+Sequence: CATCACATAGGCGTCCGCTG; Type: regular 5'; Length: 20; Trimmed: 15 times.
+
+No. of allowed errors:
+0-9 bp: 0; 10-19 bp: 1; 20 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	15	15.6	0	15
+
+=== Second read: Adapter 3 ===
+
+Sequence: CAGCGGACGCCTATGTGATGG; Type: regular 3'; Length: 21; Trimmed: 27 times.
+
+No. of allowed errors:
+0-9 bp: 0; 10-19 bp: 1; 20-21 bp: 2
+
+Bases preceding removed adapters:
+  A: 18.5%
+  C: 37.0%
+  G: 37.0%
+  T: 7.4%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	19	15.6	0	19
+4	6	3.9	0	6
+6	1	0.2	0	1
+10	1	0.0	1	0 1
+
+=== Second read: Adapter 4 ===
+
+Sequence: CATCACATAGGCGTCCGCTG; Type: regular 5'; Length: 20; Trimmed: 16 times.
+
+No. of allowed errors:
+0-9 bp: 0; 10-19 bp: 1; 20 bp: 2
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	15	15.6	0	15
+4	1	3.9	0	1
+
