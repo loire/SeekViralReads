@@ -1,0 +1,36 @@
+<pre><code>    #SeekViralReads results for **test** 
+    --- 
+    ##Adapters removal by cutadapt 
+    ***
+    command line:
+    
+    ```bash 
+    cutadapt  -n 5 -a CAGCGGACGCCTATGTGATGG -g CATCACATAGGCGTCCGCTG -A CAGCGGACGCCTATGTGATGG -G CATCACATAGGCGTCCGCTG -O 15 -o no_adaptor_sample_R1.fastq -p no_adaptor_sample_R2.fastq Data/sample_R1.fastq Data/sample_R2.fastq
+    ```
+    Summary:
+    |---|---|
+    |total reads processsed | 1000 | 
+    | R1 with adapters |43 (4.3%)| 
+    | R2 with adapters | 33 (3.3%) | 
+    | pairs written | 1,000 | 
+    | R1 total length before | 249,799 | 
+    | R1 total length after | 247,655 | 
+    | R2 total length before | 244,066  | 
+    | R2 total length after | 242,511
+    ##Quality trimming by cutadapt 
+    command line:
+    
+    ```bash 
+    cutadapt  -n 5 -a CAGCGGACGCCTATGTGATGG -g CATCACATAGGCGTCCGCTG -A CAGCGGACGCCTATGTGATGG -G CATCACATAGGCGTCCGCTG -O 15 -o no_adaptor_sample_R1.fastq -p no_adaptor_sample_R2.fastq Data/sample_R1.fastq Data/sample_R2.fastq
+    ```
+    Summary:
+    |---|---|
+    |total reads processsed | 1,000 | 
+    | R1 with adapters | 38 (3.8%) | 
+    | R2 with adapters | 43 (4.3%) |
+    | pairs written | 940 (94%) | 
+    | R1 total length before | 247,644 | 
+    | R1 total length after | 224,446 | 
+    | R2 total length before | 242,511  | 
+    | R2 total length after | 182,841 |
+    </code></pre>
