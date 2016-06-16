@@ -141,5 +141,6 @@ rm  *viral.fasta out* clean* filtered* no_adaptor_* *.bam
 
 python create_results_doc.py "$basen"
 pandoc -f markdown_github -t latex  -o "$basen"_results.pdf "$basen"_report.md
+pandoc -f markdown_github -t html5  -o "$basen"_results.html "$basen"_report.md
 
 
