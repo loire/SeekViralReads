@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="github-pandoc.css" type="text/css" />
+</head>
+<body>
+<h1 id="seekviralreads-results-for-sample-sample">SeekViralReads results for sample <strong><em>&quot;sample&quot;</em></strong></h1>
+<hr />
+<h2 id="adapters-removal-by-cutadapt">Adapters removal by cutadapt</h2>
+<h3 id="command-line"> command line:</h3>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cutadapt</span>  -n 5 -a CAGCGGACGCCTATGTGATGG -g CATCACATAGGCGTCCGCTG -A CAGCGGACGCCTATGTGATGG -G CATCACATAGGCGTCCGCTG -O 15 -o no_adaptor_sample_R1.fastq -p no_adaptor_sample_R2.fastq Data/sample_R1.fastq Data/sample_R2.fastq</code></pre>
+<h3 id="results-summary">Results summary</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">variable</th>
+<th align="left">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Total read pairs processsed</td>
+<td align="left">1,000</td>
+</tr>
+<tr class="even">
+<td align="left">R1 with adapters</td>
+<td align="left">43 (4.3%)</td>
+</tr>
+<tr class="odd">
+<td align="left">R2 with adapters</td>
+<td align="left">33 (3.3%)</td>
+</tr>
+<tr class="even">
+<td align="left">R1 total length before</td>
+<td align="left">249,799 bp</td>
+</tr>
+<tr class="odd">
+<td align="left">R1 total length after</td>
+<td align="left">247,655 bp</td>
+</tr>
+<tr class="even">
+<td align="left">R2 total length before</td>
+<td align="left">244,066 bp</td>
+</tr>
+<tr class="odd">
+<td align="left">R2 total length after</td>
+<td align="left">242,511 bp</td>
+</tr>
+<tr class="even">
+<td align="left">Total length of filtered sequences (R1+R2)</td>
+<td align="left">490,166 bp (99.3%)</td>
+</tr>
+<tr class="odd">
+<td align="left">Reads pairs written</td>
+<td align="left">1,000 (100.0%)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="quality-trimming-by-cutadapt">Quality trimming by cutadapt</h2>
+<h3 id="command-line-1"> command line:</h3>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cutadapt</span>  -a CAGCGGACGCCTATGTGATGG -g CATCACATAGGCGTCCGCTG -A CAGCGGACGCCTATGTGATGG -G CATCACATAGGCGTCCGCTG -m 40 -q 30,30 -o cleaned_sample_R1.fastq -p cleaned_sample_R2.fastq no_adaptor_sample_R1.fastq no_adaptor_sample_R2.fastq</code></pre>
+<h3 id="results-summary-1">Results summary:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">variable</th>
+<th align="left">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Total reads pairs processsed</td>
+<td align="left">1,000</td>
+</tr>
+<tr class="even">
+<td align="left">R1 with adapters</td>
+<td align="left">38 (3.8%)</td>
+</tr>
+<tr class="odd">
+<td align="left">R2 with adapters</td>
+<td align="left">43 (4.3%)</td>
+</tr>
+<tr class="even">
+<td align="left">R1 total length before</td>
+<td align="left">247,655 bp</td>
+</tr>
+<tr class="odd">
+<td align="left">R1 total length after</td>
+<td align="left">224,446 bp</td>
+</tr>
+<tr class="even">
+<td align="left">R2 total length before</td>
+<td align="left">242,511 bp</td>
+</tr>
+<tr class="odd">
+<td align="left">R2 total length after</td>
+<td align="left">182,841 bp</td>
+</tr>
+<tr class="even">
+<td align="left">Total length of quality trimmed sequences</td>
+<td align="left">407,287 bp (83.1%)</td>
+</tr>
+<tr class="odd">
+<td align="left">Reads pairs written</td>
+<td align="left">940 (94.0%)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mapping-on-contaminent-sequences">Mapping on contaminent sequences</h2>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bwa</span> mem -t 15 Data/Bacterial16S_and_Aedes_vexans_genome.fasta cleaned_sample_R1.fastq cleaned_sample_R2.fastq</code></pre>
+<h3 id="stats">Stats</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">variable</th>
+<th align="left">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Reads input</td>
+<td align="left">940</td>
+</tr>
+<tr class="even">
+<td align="left">Properly Mapped</td>
+<td align="left">391</td>
+</tr>
+<tr class="odd">
+<td align="left">Properly Mapped %</td>
+<td align="left">41.60%</td>
+</tr>
+<tr class="even">
+<td align="left">Mapped with mate to a different chrom</td>
+<td align="left">24</td>
+</tr>
+<tr class="odd">
+<td align="left">Reads pair written</td>
+<td align="left">525</td>
+</tr>
+</tbody>
+</table>
+<h2 id="merging-overlapping-reads-with-flash">Merging overlapping reads with flash</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left">variable</th>
+<th align="left">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Reads input</td>
+<td align="left">525</td>
+</tr>
+<tr class="even">
+<td align="left">Combined pairs</td>
+<td align="left">175</td>
+</tr>
+<tr class="odd">
+<td align="left">Percent combined</td>
+<td align="left">33.33%</td>
+</tr>
+<tr class="even">
+<td align="left">Uncombined pairs</td>
+<td align="left">350</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of output sequences</td>
+<td align="left">875</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dereplicate-dataset-with-vsearch">Dereplicate dataset with vsearch</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left">variable</th>
+<th align="left">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Input file name</td>
+<td align="left">sample_reads_potential_viral.fasta</td>
+</tr>
+<tr class="even">
+<td align="left">Number of sequences</td>
+<td align="left">875</td>
+</tr>
+<tr class="odd">
+<td align="left">Total length of sequences</td>
+<td align="left">211772</td>
+</tr>
+<tr class="even">
+<td align="left">Number of unique sequences</td>
+<td align="left">724</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
