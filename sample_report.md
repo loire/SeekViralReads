@@ -60,4 +60,25 @@ bwa mem -t 15 Data/Bacterial16S_and_Aedes_vexans_genome.fasta cleaned_sample_R1.
 | Properly Mapped | 391  |
 | Properly Mapped % | 41.60% |
 | Mapped with mate to a different chrom  | 24   |
-| Output reads | 525   |
+| Reads pair written | 525   |
+
+## Merging overlapping reads with flash
+
+| variable | value |
+| --- | --- |
+| Reads input | 525  |
+| Combined pairs | 175 |
+| Percent combined | 33.33% |
+| Uncombined pairs | 350 |
+| Number of output sequences | 875  |
+
+## Dereplicate dataset with vsearch
+
+| variable | value |
+| --- | --- |
+| Input file name  | sample_reads_potential_viral.fasta  |
+| Number of sequences  | 875 |
+| Total length of sequences | 211772 |
+| Number of unique sequences | 724 |
+
+
