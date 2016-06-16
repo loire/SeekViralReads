@@ -125,10 +125,9 @@ for i in out*fastq ; do seqtk seq -A $i >> "$basen"_reads_potential_viral.fasta 
 
 # Dereplicate identical (or engulfed) candidates sequences:
 
-vsearch -derep_prefix "$basen"_reads_potential_viral.fasta --output "$basen"_reads_potential_viral_derep.fasta
+vsearch -derep_prefix "$basen"_reads_potential_viral.fasta --output "$basen"_reads_potential_viral_derep.fasta 2> log_vsearch_"$basen".txt
 
 # Blast all the way
-
 
 blastn -task blastn -db /homedir/loire/work/share/ViralBlastDB/Viral_NT_sequences.fasta -query "$basen"_reads_potential_viral_derep.fasta -num_threads $nthread -evalue 0.05 -num_alignments 1 -outfmt 6 > "$basen"_blast_vir_NT_results.tsv
 
