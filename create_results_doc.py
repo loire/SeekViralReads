@@ -135,12 +135,45 @@ else:
     print "Stats_mapping_contaminent"+sys.argv[1]+".txt do not exit in current dir"
     sys.exit()
 
+if exists("log_flash_"+sys.argv[1]+".txt"):
+    with open("log_flash_"+sys.argv[1]+".txt") as flf :
+        for line in flf:
+            if "Total pairs" in line:
+                c = line.split(":")
+                context["flashInput"] = c[1]
+                line = flf.next()
+                c = line.split(":")
+                context["flashCombined"] = c[1]
+                line = flf.next()
+                c = line.split(":")
+                context["flashUncombined"] = c[1]
+                line = flf.next()
+                c = line.split(":")
+                context["flashCombinedpc"] = c[1]
+                context["flashOutput"] = str(int(context["flashCombined"])+ 2*int(context["flashUncombined"]))
+                break
+else:
+    print "log_flash"+sys.argv[1]+".txt do not exit in current dir"
+    sys.exit()
 
+if exists("log_vsearch_"+sys.argv[1]+".txt"):
+    with open("log_vsearch_"+sys.argv[1]+".txt") as vlf :
+        vlog = vlf.readlines()
+        c = vlog[0].split()
+        context["vInfile"]=c[2]
+        c = vlog[1].split()
+        context["vNt"] = c[0]
+        context["vSeq"] = c[3]
+        c = vlog[-2].split()
+        context["vUnique"] = c[0]
+
+else:
+    print "log_vsearch_"+sys.argv[1]+".txt do not exit in current dir"
+    sys.exit()
 
 
 for key in context.keys():
     context[key] = context[key].replace("\n","").strip()
-
 
 
 
@@ -156,7 +189,6 @@ template = """
 ```bash 
 {CutAdaptCMD1}
 ```
-### Results summary
 
 | variable | value |
 | --- | --- |
@@ -178,8 +210,6 @@ template = """
 {CutAdaptCMD2}
 ```
 
-### Results summary:
-
 | variable | value |
 | --- | --- |
 | Total reads pairs processsed | {CutA_2_total} |
@@ -198,16 +228,37 @@ template = """
 {bwaCMD}
 ```
 
-### Stats
-
 | variable | value |
 | --- | --- |
 | Reads input   | {bwaInputReads} |
 | Properly Mapped | {bwaMapped}  |
 | Properly Mapped % | {bwaMappedpc} |
 | Mapped with mate to a different chrom  | {bwaSingle}   |
-| Output reads | {bwaOutput}   |
+| Reads pair written | {bwaOutput}   |
+
+## Merging overlapping reads with flash
+
+| variable | value |
+| --- | --- |
+| Reads input | {flashInput}  |
+| Combined pairs | {flashCombined} |
+| Percent combined | {flashCombinedpc} |
+| Uncombined pairs | {flashUncombined} |
+| Number of output sequences | {flashOutput}  |
+
+## Dereplicate dataset with vsearch
+
+| variable | value |
+| --- | --- |
+| Input file name  | {vInfile}  |
+| Number of sequences  | {vSeq} |
+| Total length of sequences (nt) | {vNt} |
+| Number of unique sequences | {vUnique} |
+
+
 """
+
+
 fileout.write(template.format(**context))
 
 

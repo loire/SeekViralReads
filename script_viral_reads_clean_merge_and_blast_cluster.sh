@@ -139,6 +139,7 @@ blastx -db /homedir/loire/work/share/ViralBlastDB/AA_VIR -query "$basen"_reads_p
 
 rm  *viral.fasta out* clean* filtered* no_adaptor_* *.bam
 
-
+python create_results_doc.py "$basen"
+pandoc -f markdown_github -t latex  -o "$basn"_results.pdf "$basen"_report.md
 
 
