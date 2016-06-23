@@ -1,4 +1,4 @@
-#!/bin/python
+#!/usr/local/bioinfo/python/2.7.9_build2/bin/python
 # -*- coding: utf-8 -*-
 import sys
 from os.path import exists
