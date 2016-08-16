@@ -1,3 +1,4 @@
+#test
 # Definition of variables
 maxnthread=1
 
